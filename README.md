@@ -47,12 +47,3 @@ spring.datasource.password=system
   "completed": false
 }
 ```
-
-
-
-Then commit & push:
-```bash
-git add README.md
-git commit -m "Added README"
-git push
-```
