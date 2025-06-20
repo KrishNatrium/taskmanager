@@ -1,49 +1,104 @@
-# 🧰 Task Manager API
+# Task Manager API
 
-A Spring Boot REST API for managing tasks (Create, Read, Update, Delete).
+A Spring Boot REST API for managing tasks with full CRUD operations.
 
-## 🧪 API Endpoints
+---
 
-| Method | Endpoint         | Description          |
-|--------|------------------|----------------------|
-| GET    | /api/tasks       | Get all tasks        |
-| POST   | /api/tasks       | Create a new task    |
-| PUT    | /api/tasks/{id}  | Update a task        |
-| DELETE | /api/tasks/{id}  | Delete a task        |
+## APIs Created and Their Functionality
 
-## 💾 Tech Stack
+| HTTP Method | Endpoint           | Description                        |
+|-------------|--------------------|----------------------------------|
+| GET         | `/api/tasks`       | Retrieve all tasks                |
+| POST        | `/api/tasks`       | Create a new task                 |
+| PUT         | `/api/tasks/{id}`  | Update an existing task by ID    |
+| DELETE      | `/api/tasks/{id}`  | Delete a task by ID               |
 
-- Java 21
-- Spring Boot 3
-- MySQL
-- Maven
+---
 
-## ▶️ Run Locally
+## Database Used and Integration
 
-1. Start MySQL and create the database:
-```sql
-CREATE DATABASE taskdb;
-````
+- **Database:** MySQL
+- **Database Name:** `taskdb`
+- **Integration:** 
+  - Used **Spring Data JPA** to interact with MySQL.
+  - The entity class `Task` is mapped to a database table.
+  - Database connection configured in `application.properties` with JDBC URL, username, and password.
+  - Hibernate automatically manages schema updates with `spring.jpa.hibernate.ddl-auto=update`.
 
-2. Configure credentials in `application.properties`:
+---
 
-```properties
-spring.datasource.username=root
-spring.datasource.password=system
-```
+## How to Run the Server Locally
 
-3. Run the app:
+### Prerequisites
+- Java 21 or above installed
+- Maven installed
+- MySQL server running
 
-```bash
-./mvnw spring-boot:run
-```
+### Steps
+1. Create the database (if not already done):
 
-## 📬 Sample POST Request
+   ```sql
+   CREATE DATABASE taskdb;
+   ```
 
-```json
-{
-  "title": "Try the API",
-  "description": "Make sure everything works",
-  "completed": false
-}
-```
+2. Configure your MySQL credentials in `src/main/resources/application.properties`:
+
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/taskdb
+   spring.datasource.username=root
+   spring.datasource.password=system
+   spring.jpa.hibernate.ddl-auto=update
+   ```
+
+3. Build and run the Spring Boot app:
+
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+4. Server will start on: `http://localhost:9091` (or the configured port)
+
+---
+
+## How to Interact with the API
+
+You can use tools like **Postman**, **curl**, or any HTTP client.
+
+### Sample Requests:
+
+* **Create a Task** (POST `/api/tasks`)
+
+  ```json
+  {
+    "title": "Finish API Server",
+    "description": "Build and test Spring Boot API project",
+    "completed": false
+  }
+  ```
+
+* **Get All Tasks** (GET `/api/tasks`)
+
+  Response:
+
+  ```json
+  [
+    {
+      "id": 1,
+      "title": "Finish API Server",
+      "description": "Build and test Spring Boot API project",
+      "completed": false
+    }
+  ]
+  ```
+
+* **Update a Task** (PUT `/api/tasks/{id}`)
+
+  ```json
+  {
+    "title": "Finish API Server - Updated",
+    "description": "Updated project backend",
+    "completed": true
+  }
+  ```
+
+* **Delete a Task** (DELETE `/api/tasks/{id}`)
