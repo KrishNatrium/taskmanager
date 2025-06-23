@@ -47,3 +47,39 @@ spring.datasource.password=system
   "completed": false
 }
 ```
+
+## 🧪 Testing Information
+
+### 🔧 Tech Stack Used for Testing
+
+* **JUnit 5** – For writing unit and integration tests
+* **Mockito** – For mocking dependencies
+* **MockMvc** – For simulating HTTP requests in API tests
+* **JaCoCo** – For generating code coverage reports
+
+### 🚀 How to Run Tests
+
+To run all tests and generate the code coverage report:
+
+```bash
+./mvnw clean test
+```
+
+or on Windows:
+
+```bash
+mvnw.cmd clean test
+```
+
+> 📂 After running, the coverage report can be found at:
+
+```
+target/site/jacoco/index.html
+```
+
+### 🖼️ Test Coverage Screenshot
+
+> ![JaCoCo Report](./screenshots/imp.png)
+
+---
+
