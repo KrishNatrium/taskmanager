@@ -137,4 +137,5 @@ target/site/jacoco/index.html
 > ![JaCoCo Report](./screenshots/img.png)
 
 ---
+🧪 All test classes are located in: `src/test/java/com/example/taskmanager/`
 
