@@ -134,7 +134,7 @@ target/site/jacoco/index.html
 
 ### 🖼️ Test Coverage Screenshot
 
-> ![JaCoCo Report](./screenshots/imp.png)
+> ![JaCoCo Report](./screenshots/img.png)
 
 ---
 
